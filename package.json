@@ -1,0 +1,23 @@
+{
+  "name": "simple-todo-list-ts",
+  "version": "1.0.0",
+  "description": "In this app, I will create a very simple todo app utilizing TS concepts",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klanti117/simple-toDo-list-TS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klanti117/simple-toDo-list-TS/issues"
+  },
+  "homepage": "https://github.com/klanti117/simple-toDo-list-TS#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
