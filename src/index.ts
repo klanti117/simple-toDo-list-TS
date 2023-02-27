@@ -8,7 +8,9 @@ form.addEventListener("submit",(e)=>{
     e.preventDefault()
     const newItem = input.value
     const newLI = document.createElement("li")
-    newLI.append(newItem)
+    const checkList = document.createElement("input")
+    checkList.type="checkbox"
+    newLI.append(newItem, checkList)
     list?.append(newLI)//optional chaining necessary
     input.value=""
 })
