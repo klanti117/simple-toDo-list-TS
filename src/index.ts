@@ -8,6 +8,9 @@ const form = document.querySelector("form")!
 const list = document.getElementById("todoList") /*asserting is not a good idea here, 
 as the list initially will be empty */
 
+const saveTodo = () =>{
+    localStorage.setItem("todos", JSON.stringify(todos))
+}
 const readTodos = () => {
     const todoJSON = localStorage.getItem("todos")
     if (todoJSON === null) return []
@@ -16,9 +19,15 @@ const readTodos = () => {
 
 const renderTodo = (newTodo: Todo) => {
     const newLI = document.createElement("li")
-    const checkBox = document.createElement("input")
-    checkBox.type = "checkbox"
-    newLI.append(newTodo.text, checkBox)
+    const checkbox = document.createElement("input")
+    checkbox.type = "checkbox"
+    checkbox.checked = newTodo.isCompleted
+    checkbox.addEventListener("change",()=>{
+        // console.log("checked")
+        newTodo.isCompleted = checkbox.checked 
+        saveTodo()
+    })
+    newLI.append(newTodo.text, checkbox)
     list?.append(newLI)//optional chaining necessary
 }
 
@@ -36,7 +45,7 @@ form.addEventListener("submit",(e)=>{
     todos.push(newTodo)
     renderTodo(newTodo)
     
-    localStorage.setItem("todos", JSON.stringify(todos))
+    saveTodo()
     input.value=""
 })
 
