@@ -1,7 +1,9 @@
 const btn  = document.getElementById("btn")!
 const input  = document.getElementById("todoInput")! as HTMLInputElement
+const form  = document.querySelector("form")!
 
-btn.addEventListener("click",()=>{
-    console.log(input.value)
-    input.value=""
+form.addEventListener("submit",(e)=>{
+    e.preventDefault()
+    console.log("submitted")
 })
+
